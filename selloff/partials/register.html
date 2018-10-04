@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+<div>
+<form name="register">
+<input type="text" ng-model="fname" placeholder="Enter First Name" class="form-control" ng-pattern="/^[a-zA-Z]+/"></input>
+<input type="text" ng-model="mname" placeholder="Enter Middle Name" class="form-control"></input>
+<input type="text" ng-model="lname" placeholder="Enter Last Name" class="form-control" ng-pattern="/^[a-zA-Z]+/"></input><br>
+<input type="email" ng-model="username" placeholder="Enter username" class="form-control"></input><br>
+<input type="password" ng-model="Password" placeholder="Enter password" class="form-control"></input><br>
+<input type="password" ng-model="ConfirmPassword" placeholder="Confirm your password" class="form-control"></input><br>
+<input type="number" ng-model="mobile" placeholder="Enter Mobile Number"  class="form-control" ng-minlength=10 ng-maxlength=10></input><br>
+<input type="submit" value="Register" ng-disabled="!username || !passwordvalid || !mobile || !fname || !lname" class="btn btn-default" ng-click="adduser()"></input><br> 
+</form>
+{{err}}
+</div>
+</div>
+</body>
+</head>
+</html>

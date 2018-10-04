@@ -1,0 +1,40 @@
+.jumbotron {
+  margin-bottom: 0px;
+  height: 970px;
+  color: black;
+}
+
+.form-control
+{
+    position: relative;
+    width: 400px;
+    height: 40px;
+    border: 1px solid
+    display: block;
+    margin : 0 auto;
+}
+
+
+.btn-file {
+    position: relative;
+    overflow: hidden;
+}
+.btn-file input[type=file] {
+    opacity: 0.0;
+    background: transparent;
+	display: none;
+}
+
+
+
+table, th , td  {
+  border: 1px solid grey;
+  border-collapse: collapse;
+  padding: 5px;
+}
+table tr:nth-child(odd) {
+  background-color: #f1f1f1;
+}
+table tr:nth-child(even) {
+  background-color: #ffffff;
+}

@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<head>
+<div ng-init="err=''">
+<form name="login">
+<input type="email" ng-model="username" placeholder="Enter username" class="form-control"></input><br>
+<input type="password" ng-model="Password" placeholder="Enter password" class="form-control"></input><br>
+<input type="submit" value="Login" ng-disabled="!username || !Password" class="btn btn-default" ng-click="finduser()"></input><br>
+<input type="checkbox"> Remember me</label> 
+</form>
+{{err}}
+<br><br>
+<p>Not yet a user. Please do Register</p>
+<a href="#/register"> Register </a>
+</div>
+</body>
+</head>
+</html>

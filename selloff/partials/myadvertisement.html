@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+<head>
+<div class="pic">
+<img ng-src="/imgs/{{imgdir}}/prof-pic.jpg?cb={{random}}" alt="" style="position:absolute;left:0;top:0;"/>
+</div>
+
+<div>
+<p>Welcome {{user.fname+" "+user.lname}}</p>
+<form ref='uploadForm' id='uploadForm' ng-submit="upload(1,'profilePic')" style="display:inline-block;">
+<input type="file" id="profilePic" class="btn btn-default btn-file" style="position:absolute;left:0;top:0;opacity:0.3;"/>
+<input type='submit' value='Upload!' class="btn btn-default" style="position:absolute;left:0;top:0.25;width:300px;height:40px;opacity:0.3"/>
+</form>
+
+
+<div class="form-group"" ng-init="sel1='Select Options'"/>
+      <select class="form-control" ng-model="sel1" ng-change="options()" style="position:absolute;right:0;top:0;width:150px;height:35px;">
+		 <option ng-selected=true disabled>Select Options</option>
+        <option>Logout</option>
+        <option>Account Details</option>
+		<option>My Ads</option>
+      </select>
+</div>
+
+<form ref='uploadForm' id='uploadItems' ng-submit="getmyads()" style="display:inline-block;">
+<select class="form-control" ng-model="category"  style="width:400px;height:35px;">
+		 <option ng-selected=true disabled>Select Category</option>
+        <option>Electronics</option>
+        <option>Cars,Bikes</option>
+		<option>Furniture</option>
+		<option>Books</option>
+		<option>Fashion</option>
+		<option>Toys,Pets</option>
+		<option>Others</option>
+		<option>All</option>
+      </select>
+<input type='submit' ng-disabled="submitbuttondisabled" value='Search' class="btn btn-default""/>
+</form>
+<br><br>
+<table align="center" width="900">
+   <tr ng-repeat="item in myitems">
+	  <th> <img ng-src="{{item.imgloc}}"/> </th>
+      <th><font color="red">User Name:</font> {{ item.uname }} <br>
+	  <font color="red">Full Name:</font> {{ item.fullname }} <br>
+	  <font color="red">Category:</font> {{item.category}}<br>
+	  <font color="red">Mobile:</font> {{item.mob}}<br><br>
+	  <font color="red">Description:</font>
+	  <div ng-hide="descriptioneditorEnabled[$index]">
+      {{item.description}}
+      <button ng-click="enabledescriptionEditor($index)">Edit Description</button>
+      </div>
+	  
+      <div ng-show="descriptioneditorEnabled[$index]">
+      <input ng-model="descriptioneditableTitle[$index]" ng-show="descriptioneditorEnabled[$index]">
+      <button ng-click="descriptionsave($index)">Save</button>
+	  or
+      <button ng-click="descriptiondisableEditor($index)">cancel</button>.
+      </div>
+	  
+	  
+	  <font color="red">Cost:</font>
+	  <div ng-hide="costeditorEnabled[$index]">
+      {{item.cost}}
+      <button ng-click="enablecostEditor($index)">Edit Cost</button>
+      </div>
+      <div ng-show="costeditorEnabled[$index]">
+      <input type="number" ng-model="costeditableTitle[$index]" ng-show="costeditorEnabled[$index]">
+      <button ng-click="costsave($index)">Save</button>
+	  or
+      <button ng-click="costdisableEditor($index)">cancel</button>.
+      </div>
+	  
+	  <br>
+	  <font color="red">Date of ad:</font> {{item.date}}<br>
+	  </th>
+	  
+	  
+	  <th><font color="red">Status:</font>
+      {{item.status}}
+      <button ng-click="changestatus($index)">Change Status</button>
+      </div>
+	  
+	  
+	  </th>
+   </tr>
+</table>
+<br><br>
+<a href="#/userpage?uname={{user.uname}}">User Home Page</a>
+	  
+</div>
+</body>
+</head>
+</html>

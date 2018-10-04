@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+<div class="pic">
+<img ng-src="/imgs/{{imgdir}}/prof-pic.jpg?cb={{random}}" alt="" style="position:absolute;left:0;top:0;"/>
+</div>
+
+<div>
+<p>Welcome {{user.fname+" "+user.lname}}</p>
+<form ref='uploadForm' id='uploadForm' ng-submit="upload(1,'profilePic')" style="display:inline-block;">
+<input type="file" id="profilePic" class="btn btn-default btn-file" style="position:absolute;left:0;top:0;opacity:0.3;"/>
+<input type='submit' value='Upload!' class="btn btn-default" style="position:absolute;left:0;top:0.25;width:300px;height:40px;opacity:0.3"/>
+</form>
+
+
+<div class="form-group"" ng-init="sel1='Select Options'"/>
+      <select class="form-control" ng-model="sel1" ng-change="options()" style="position:absolute;right:0;top:0;width:150px;height:35px;">
+		 <option ng-selected=true disabled>Select Options</option>
+        <option>Logout</option>
+        <option>Account Details</option>
+		<option>My Ads</option>
+      </select>
+</div>
+
+<table align="center" width="500">
+   <tr>
+	  <th>First Name</th>
+      <th>{{ user.fname }}</th>
+   </tr>
+   <tr>
+	  <th>Middle Name</th>
+      <th>{{user.mname}}</th>
+   </tr>
+   <tr>
+	  <th>Last Name</th>
+      <th>{{user.lname}}</th>
+   </tr>
+   <tr>
+	  <th>User Name</th>
+      <th>{{user.uname}}</th>
+   </tr>
+   <tr>
+	  <th>Mobile Number</th>
+      <th>
+	  <div ng-hide="mobeditorEnabled">
+      {{ user.mob }}
+      <button ng-click="enablemobEditor()">Edit Mobile Number</button>
+      </div>
+      <div ng-show="mobeditorEnabled">
+      <input type="number" ng-model="mobeditableTitle" ng-show="mobeditorEnabled">
+      <button ng-click="mobsave()">Save</button>
+	  or
+      <button ng-click="mobdisableEditor()">cancel</button>.
+      </div>
+	  </th>
+   </tr>
+</table>
+<br><br>
+<a href="#/userpage?uname={{user.uname}}">User Home Page</a>
+	  
+</div>
+</body>
+</head>
+</html>
